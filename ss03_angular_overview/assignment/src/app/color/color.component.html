@@ -1,0 +1,11 @@
+<h2>Color editor</h2>
+
+<div>
+  <label>Enter color:</label>
+
+  <input type="range" min="1" max="10" value="5" [(ngModel)]="gram">
+</div>
+
+<p class="output" [style.color] ="changeColor()" style="font-size: 40px">
+  This is colored.
+</p>

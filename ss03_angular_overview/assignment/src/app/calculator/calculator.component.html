@@ -1,0 +1,25 @@
+<h2>Calculator tool:</h2>
+<label>
+  input first number:
+  <input type="text" [(ngModel)]="n1">
+</label>
+<br >
+<label>
+  input second number:
+  <input type="text" [(ngModel)]="n2">
+</label>
+<br >
+<!--<input type="button"  value="add" [(ngModel)]="choice"> Addition-->
+<!--<input type="button" value="sub" [(ngModel)]="choice"> Subtraction-->
+<!--<input type="button" value="mul" [(ngModel)]="choice"> Multiple-->
+<!--<input type="button" value="div" [(ngModel)]="choice"> Divide-->
+<input #it type="button" value="add" (click)="makeAChoice($event)">
+<input #ot type="button" value="sub" (click)="makeAChoice($event)">
+<input #pt type="button" value="mul" (click)="makeAChoice($event)">
+<input #ut type="button" value="div" (click)="makeAChoice($event)">
+
+
+<p class="output">
+  result is: {{result}}
+</p>
+
