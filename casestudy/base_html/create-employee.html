@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<!--    <link rel="stylesheet" href="create.css">-->
+</head>
+<body>
+<!--v1-->
+<!--<div class="container mt-3">-->
+<!--    <a routerLink="/employee/list">Back to List</a>-->
+
+<!--&lt;!&ndash;    <form [formGroup]="createForm" (ngSubmit)="create()"> &lt;!&ndash;    th:object="${cusDtoObj}"&ndash;&gt;&ndash;&gt;-->
+
+<!--        <div class="form-group">-->
+<!--            <table class="w-50 m-auto">-->
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td>-->
+<!--                        <h3 style="text-align: center;color: blue">Create Employee</h3>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="name">Name:</label></td>-->
+<!--                    <td>-->
+<!--                        <input  class="form-control" id="name" formControlName="name"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('name')?.errors?.required $$ createForm.controls.name?.dirty">Không bỏ trống trường này</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="dayOfBirth">Date of birth:</label></td>-->
+<!--                    <td>-->
+<!--                        <input type="date"  class="form-control" id="dayOfBirth" formControlName="dayOfBirth"/>-->
+<!--                        <div id="dayMess" class="message" *ngIf="createForm.get('dayOfBirth')?.errors?.required $$ createForm.get('dayOfBirth').dirty">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                        <div  class="message"  *ngIf="createForm.controls?.dayOfBirth?.hasError('ageInvalid') $$ createForm.get('dayOfBirth').touched">Tuổi phải >=18</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="email">Email:</label></td>-->
+<!--                    <td>-->
+<!--                        <input  class="form-control" id="email" formControlName="email"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('email')?.errors?.required $$ createForm.get('email').touched">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                        <div  class="message"  *ngIf="createForm.get('email')?.hasError('pattern') $$ createForm.get('email').touched">Nhập code theo định dạng : 'email@abc.com'</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="address">Address:</label></td>-->
+<!--                    <td>-->
+<!--                        <input  class="form-control" id="address" formControlName="address"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('email')?.errors?.required $$ createForm.get('email').touched">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="division"></label>Division:</td>-->
+<!--                    <td>-->
+<!--                        <select formControlName="division" id="division" class="form-control">-->
+<!--                            <option [selected]="true" [value]="null" disabled>&#45;&#45;Choose Division&#45;&#45;</option>-->
+<!--                            <option *ngFor="let item of divisionList" [ngValue]="item">{{item.name}}</option>-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="position"></label>Position:</td>-->
+<!--                    <td>-->
+<!--                        <select formControlName="position" id="position" class="form-control">-->
+<!--                            <option [selected]="true" [value]="null" disabled>&#45;&#45;Choose Position&#45;&#45;</option>-->
+<!--                            <option *ngFor="let item of positionList" [ngValue]="item">{{item.name}}</option>-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="eduDegree"></label>eduDegree:</td>-->
+<!--                    <td>-->
+<!--                        <select formControlName="eduDegree" id="eduDegree" class="form-control">-->
+<!--                            <option [selected]="true" [value]="null" disabled>&#45;&#45;Choose eduDegree&#45;&#45;</option>-->
+<!--                            <option *ngFor="let item of eduDegreeList" [ngValue]="item">{{item.name}}</option>-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+
+<!--                <tr>-->
+<!--                    <td><label for="idCard"></label>ID Card:</td>-->
+<!--                    <td>-->
+<!--                        <input  class="form-control" id="idCard" formControlName="idCard"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('idCard')?.errors?.required $$ createForm.get('idCard').dirty">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                        <div  class="message"  *ngIf="createForm.get('idCard')?.hasError('pattern') $$ createForm.get('idCard').dirty">Vui lòng nhập theo định dạng: 'XXXXXXXXX' or 'XXXXXXXXX'  (X: 0-9)</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="phone"></label>Phone:</td>-->
+<!--                    <td>-->
+<!--                        <input class="form-control" id="phone" formControlName="phone"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('phone')?.errors?.required $$ createForm.get('phone').dirty">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                        <div  class="message"  *ngIf="createForm.get('phone')?.hasError('pattern') $$ createForm.get('phone').dirty">Nhập theo định dạng: '090xxxxxxx' or '091xxxxxxx' or (84)+90xxxxxxx or (84)+91xxxxxxx  (x: 0-9)</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td><label for="salary"></label>Salary:</td>-->
+<!--                    <td>-->
+<!--                        <input class="form-control" id="salary" formControlName="salary"/>-->
+<!--                        <div class="message" *ngIf="createForm.get('salary')?.errors?.required $$ createForm.get('salary').dirty">-->
+<!--                            Không bỏ trống trường này-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;            <div  class="message"  *ngIf="createForm.get('phone')?.hasError('pattern') $$ createForm.get('phone').dirty">Nhập theo định dạng: '090xxxxxxx' or '091xxxxxxx' or (84)+90xxxxxxx or (84)+91xxxxxxx  (x: 0-9)</div>&ndash;&gt;-->
+<!--                    </td>-->
+<!--                </tr>-->
+
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td>-->
+<!--                        <button type="submit" class="btn btn-primary mt-3" [disabled]="createForm.invalid">Create</button>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--</div>-->
+
+
+
+
+<!--v2-->
+<div class="col-lg-12 text-center">
+    <h3>PLEASE INPUT INFORMATION</h3>
+</div>
+<form class="row g-3" [formGroup]="employeeForm" (ngSubmit)="create()">
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input input type="text" formControlName="name" class="form-control" id="name">
+        <div class="row" style="color: red" *ngIf="employeeForm.controls.name.hasError('required') && employeeForm.controls.name.dirty">
+            Name must not be empty
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="dOb" class="form-label">Date Of Birth</label>
+        <input type="date" formControlName="dOB" class="form-control" id="dOb">
+        <p class="text-danger"></p>
+    </div>
+    <div class="col-md-6">
+        <label for="idenNumber" class="form-label">Identity Number</label>
+        <input type="text" formControlName="identityNum" class="form-control" id="idenNumber">
+        <div style="color: red" *ngIf="employeeForm.controls.identityNum.hasError('required') && employeeForm.controls.identityNum.dirty">
+            Identity must not be empty
+        </div>
+        <div style="color: red;" *ngIf="employeeForm.controls.identityNum.hasError('pattern') && employeeForm.controls.identityNum.dirty">
+            Identity format follow XXXXXXXXX or XXXXXXXXXXXX (X: 0-9)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="number" formControlName="salary" class="form-control" id="salary">
+        <div style="color: red" *ngIf="employeeForm.controls.salary.hasError('invalid') && employeeForm.controls.salary.dirty">Salary must be greater than 0
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" formControlName="phoneNum" class="form-control" id="phoneNumber">
+        <div style="color: red" *ngIf="employeeForm.controls.phoneNum.hasError('pattern') && employeeForm.controls.phoneNum.dirty">
+            Phone Number format follow 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" formControlName="email" class="form-control" id="email">
+        <div style="color: red" *ngIf="employeeForm.controls.email.hasError('email') && employeeForm.controls.email.dirty">
+            Email not required format
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" formControlName="address" class="form-control" id="address">
+        <p class="text-danger"></p>
+        <div style="color: red" *ngIf="employeeForm.controls.address.hasError('required') && employeeForm.controls.address.dirty">
+            Address must not be empty
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="inputDivision" class="form-label">Division</label>
+        <select id="inputDivision" formControlName="division"  class="form-select">
+            <option selected [value]="null" disabled>Choose...</option>
+            <option *ngFor="let divisionObj of division" [ngValue]="divisionObj" >
+                {{divisionObj.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="inputDegree"  class="form-label">Degree</label>
+        <select id="inputDegree" formControlName="degree"  class="form-select">
+            <option selected [value]="null" disabled>Choose...</option>
+            <option *ngFor="let degreeObj of degree" [ngValue]="degreeObj" >
+                {{degreeObj.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="inputPosition" class="form-label">Position</label>
+        <select id="inputPosition" formControlName="position"  class="form-select">
+            <option selected [value]="null" disabled>Choose...</option>
+            <option *ngFor="let positionObj of position" [ngValue]="positionObj" >
+                {{positionObj.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success text-white" *ngIf="employeeForm.valid">Create</button>
+    </div>
+    <div class="col-12">
+    </div>
+</form>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
