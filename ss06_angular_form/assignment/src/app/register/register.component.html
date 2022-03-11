@@ -1,0 +1,58 @@
+<div class="container">
+<form [formGroup]="studentForm">
+<!--  Email-->
+  <div class="form-group">
+    <label class="form-label" for="exampleInputEmail1">Email address</label>
+    <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="mb-3 text-danger"
+       *ngIf="studentForm.get('email').hasError('required') && studentForm.get('email').dirty" >
+  </div>
+
+<!--  Password-->
+  <div class="form-group">
+    <label class="form-label" for="exampleInputPassword1">Password</label>
+    <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+<!--  <div class="form-group">-->
+<!--    <label for="exampleInputPassword2">Confirm Password</label>-->
+<!--    <input type="password" formControlName="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">-->
+<!--  </div>-->
+
+<!--  Country-->
+  <div class="form-group">
+    <label class="form-label" for="example2">Country</label>
+    <input type="text" formControlName="country" class="form-control" id="example2"  placeholder="Enter Country">
+  </div>
+
+<!--  Age-->
+  <div class="form-group">
+    <label for="example3">Age</label>
+    <input type="date" class="form-control" id="example3"  placeholder="Enter Age">
+  </div>
+
+<!--  Gender-->
+  <div class="form-group">
+    <label class="form-label" >Gender
+    <input type="radio" value="male"  name="gender" formControlName="gender"> Male
+    <input type="radio" value="female"  name="gender" formControlName="gender"> Female
+    </label>
+  </div>
+
+<!--  Phone-->
+  <div class="form-group">
+    <label class="form-label" for="example4">Phone</label>
+    <input type="text" class="form-control" id="example4"  placeholder="Enter Phone">
+  </div>
+
+<!--  tick-->
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Confirm for correct information </label>
+  </div>
+  <button type="submit" class="btn btn-primary"
+          [disabled]="studentForm.invalid"
+          (click)="getInfoRegister()">Register</button>
+</form>
+</div>

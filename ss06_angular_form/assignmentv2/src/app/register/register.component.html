@@ -1,0 +1,94 @@
+<div class="container">
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <!--  Email-->
+    <div class="form-group">
+      <label class="form-label" for="exampleInputEmail1">Email address</label>
+      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="mb-3 text-danger"
+         *ngIf="studentForm.get('email').hasError('required') && (submitted)" >
+      Required
+    </div>
+    <div class="mb-3 text-danger"
+         *ngIf="studentForm.get('email').hasError('pattern') && (studentForm.get('email').dirty || submitted)" >
+      Pattern
+    </div>
+
+    <!--  Password-->
+    <div formGroupName="passwordGroup">
+<!--    <div class="form-group">-->
+      <label class="form-label" for="exampleInputPassword1">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+<!--    </div>-->
+      <div class="mb-3 text-danger"
+           *ngIf="studentForm.get('passwordGroup').get('password').hasError('minlength') && ( submitted)">
+        min 6 character
+      </div>
+
+<!--      <div class="form-group">-->
+        <label for="exampleInputPassword2">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
+<!--      </div>-->
+      <div class="mb-3 text-danger"
+           *ngIf= "studentForm.hasError('notMatch',['passwordGroup']) && (studentForm.get('passwordGroup').get('confirmPassword').dirty )">
+        Password not match
+      </div>
+
+    </div>
+
+
+    <!--  Country-->
+    <div class="form-group mb-3">
+      <label class="form-label" for="example2">Country</label>
+      <select name="country" id="example2" formControlName="country">
+        <option value="Vietnam" >Vietnam</option>
+        <option value="Lao" >Lao</option>
+        <option value="Cambodia" >Cambodia</option>
+        <option value="Russia" >Russia</option>
+      </select>
+<!--      <input type="text" formControlName="country" class="form-control" id="example2"  placeholder="Enter Country">-->
+    </div>
+
+    <!--  Age-->
+    <div class="form-group">
+      <label for="example3">Age</label>
+      <input type="date" formControlName="age" class="form-control" id="example3"  placeholder="Enter Age">
+    </div>
+    <div class="mb-3 text-danger" *ngIf="studentForm.get('age').hasError('not18') && submitted">
+      not yet 18
+    </div>
+
+    <!--  Gender-->
+    <div class="form-group">
+      <label class="form-label" >Gender
+        <input type="radio" value="male"  name="gender" formControlName="gender"> Male
+        <input type="radio" value="female"  name="gender" formControlName="gender"> Female
+      </label>
+    </div>
+
+    <!--  Phone-->
+    <div class="form-group">
+      <label class="form-label" for="example4">Phone</label>
+      <input type="text" class="form-control" formControlName="phone" id="example4"  placeholder="Enter Phone">
+    </div>
+
+    <div class="mb-3 text-danger"
+    *ngIf="studentForm.get('phone').hasError('required') && (submitted)">
+      required
+    </div>
+
+    <div class="mb-3 text-danger"
+    *ngIf="studentForm.get('phone').hasError('pattern') && ( submitted)">
+      follow structure +84 xxxxxxxxxx (9or10 figure)
+    </div>
+
+    <!--  tick-->
+<!--    <div class="form-group form-check">-->
+<!--      <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--      <label class="form-check-label" for="exampleCheck1">Confirm for correct information </label>-->
+<!--    </div>-->
+    <button type="submit" class="btn btn-primary" (click)="getInfoRegister()">Register</button>
+<!--            [disabled]="studentForm.invalid"-->
+
+  </form>
+</div>

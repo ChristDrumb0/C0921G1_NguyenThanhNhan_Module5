@@ -1,0 +1,36 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!--  Email-->
+    <div class="form-group">
+      <label class="form-label" for="exampleInputEmail1">Email address</label>
+      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+             aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="mb-3 text-danger"
+         *ngIf="loginForm.get('email').hasError('required') && (submitted)">
+      Required
+    </div>
+    <div class="mb-3 text-danger"
+         *ngIf="loginForm.get('email').hasError('pattern') && (loginForm.get('email').dirty || submitted)">
+      Pattern
+    </div>
+
+    <!--  Password-->
+    <div formGroupName="passwordGroup">
+      <!--    <div class="form-group">-->
+      <label class="form-label" for="exampleInputPassword1">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+             placeholder="Password">
+      <!--    </div>-->
+      <div class="mb-3 text-danger"
+           *ngIf="loginForm.get('password').hasError('minlength') && (loginForm.get('email').dirty || submitted)">
+        min 6 character
+      </div>
+      <div class="mb-3 text-danger"
+           *ngIf="loginForm.get('password').hasError('required') && ( submitted)">
+        required
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="login()">Register</button>
+  </form>
+</div>

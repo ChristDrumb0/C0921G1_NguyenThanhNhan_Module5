@@ -1,0 +1,8 @@
+.view-btn {
+  color: #046056 !important;
+  border-color: #046056 !important;
+}
+.view-btn:hover{
+  color: white !important;
+  background-color: #046056 !important;;
+}

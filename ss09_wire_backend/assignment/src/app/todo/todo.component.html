@@ -1,0 +1,18 @@
+<h2>Todo app that help you to know how useless you are!</h2>
+<div>
+  <input type="text" [formControl]="inputForm" (keydown.enter)="addTodo()">
+</div>
+<div>
+  <ul>
+    <li *ngFor = "let t of todoList; index as i" (click)="toggleTodo(i)" [class.complete]="t.complete">
+      <div >
+        ID: {{t.id}}
+        <br>
+        Title: {{t.title}}
+      </div>
+      <button (click)="deleteTodo(i)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
