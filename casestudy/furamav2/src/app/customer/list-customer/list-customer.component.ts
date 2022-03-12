@@ -20,4 +20,8 @@ export class ListCustomerComponent implements OnInit {
     console.log(this.customer);
   }
 
+  callDelete(string: string){
+    this.customerService.findCustomerById(string);
+  }
+
 }

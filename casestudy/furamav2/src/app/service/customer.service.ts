@@ -7,6 +7,7 @@ import {CustomerType} from "../models/customer-type";
   providedIn: 'root'
 })
 export class CustomerService {
+  customerObj: Customer;
   customerList: Customer[] = [
     {
       id: 'KH-0232',
@@ -76,5 +77,10 @@ export class CustomerService {
   createCustomer(customer: Customer) {
     console.log(customer);
     return this.customerList.push(customer);
+  }
+
+  findCustomerById(id:string){
+    this.customerObj = this.customerList.find(customer => customer.id === id );
+    console.log(this.customerObj);
   }
 }

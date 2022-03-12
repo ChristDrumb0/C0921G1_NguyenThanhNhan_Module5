@@ -36,7 +36,9 @@
         <a href="#" class="btn " role="button"
            style="color: hotpink;background-color: black">Edit</a>
         <button
-                type="button" class="btn btn-danger" data-target="#modalId" data-toggle="modal">Delete
+                type="button" class="btn btn-danger" data-target="#modalId" data-toggle="modal"
+                (click)="callDelete(c.id)">Delete
+
         </button>
 
       </td>
@@ -57,12 +59,12 @@
       </div>
         <input type="hidden" name="id" id="idObjDel">
         <div class="modal-body">
-          Are you sure you want to delete
-          <span style="color:red;" id="nameObjDel"></span>?
+          Are you sure you want to delete {{customerService.customerObj.name}}
+          <span style="color:red;" id="nameObjDel">with Id ={{customerService.customerObj.id}}</span>?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">OK</button>
+          <button type="submit"  class="btn btn-primary">OK</button>
         </div>
     </div>
   </div>

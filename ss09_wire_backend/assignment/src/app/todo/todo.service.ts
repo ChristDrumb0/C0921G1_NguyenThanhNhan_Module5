@@ -8,12 +8,16 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class TodoService {
-  private readonly API_URL = 'http://jsonplaceholder.typicode.com/todos';
+  private readonly API_URL = 'http://localhost:3000/todo';
+  // private readonly API_URL = 'http://jsonplaceholder.typicode.com/todos';
   constructor(private http: HttpClient) {}
 
-  getTodoList(count= 1000): Observable<Todo[]>{
-    return this.http.get<Todo[]>(this.API_URL).pipe(map(data => data.filter((t,i)=> i<count)))
+  getTodoList(): Observable<Todo[]>{
+    return this.http.get<Todo[]>(this.API_URL).pipe(map(data => data));
   }
+  // getTodoList(count= 1000): Observable<Todo[]>{
+  //   return this.http.get<Todo[]>(this.API_URL).pipe(map(data => data.filter((t,i)=> i<count)))
+  // }
 
   updateTodo(todo: Todo): Observable<Todo>{
     return this.http.patch<Todo>(`${this.API_URL}/${todo.id}`, todo);
