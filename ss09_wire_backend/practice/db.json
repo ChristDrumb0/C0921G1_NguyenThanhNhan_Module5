@@ -1,0 +1,58 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Nitro 5",
+      "price": "28000000",
+      "category": {
+        "id": 3,
+        "name": "Acer"
+      },
+      "description": "new 100%"
+    },
+    {
+      "id": 2,
+      "name": "Legion 5",
+      "price": "25068000",
+      "category": {
+        "id": 2,
+        "name": "Lenovo"
+      },
+      "description": "97%"
+    },
+    {
+      "id": 3,
+      "name": "Zephyrus",
+      "price": "28540000",
+      "category": {
+        "id": 1,
+        "name": "ROG"
+      },
+      "description": "98%"
+    },
+    {
+      "id": 234,
+      "name": "ếwr",
+      "price": 233333333,
+      "category": {
+        "id": 2,
+        "name": "Lenovo"
+      },
+      "description": "re"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "ROG"
+    },
+    {
+      "id": 2,
+      "name": "Lenovo"
+    },
+    {
+      "id": 3,
+      "name": "Acer"
+    }
+  ]
+}
