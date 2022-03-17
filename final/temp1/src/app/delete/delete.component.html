@@ -1,0 +1,9 @@
+<h1 >Delete a Customer</h1>
+<div >
+  Are you sure you want to delete <span style="color:red;" id="nameObjDel">{{customer.name}}</span> with Id
+  <span style="color:red;" id="idObjDel">with Id ={{customer.id}}</span>?
+</div>
+<div >
+  <button type="button" class="btn btn-danger" (click)="onNoClick()">No Thanks</button>
+  <button type="button" class="btn btn-danger" (click) ="onDelete(customer.id)">Ok</button>
+</div>

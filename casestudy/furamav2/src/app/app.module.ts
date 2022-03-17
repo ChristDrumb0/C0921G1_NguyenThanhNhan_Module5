@@ -12,6 +12,9 @@ import {FacilityModule} from "./facility/facility.module";
 import {CustomerModule} from "./customer/customer.module";
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from "ngx-pagination";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 
@@ -31,6 +34,9 @@ import {AppRoutingModule} from "./app-routing.module";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

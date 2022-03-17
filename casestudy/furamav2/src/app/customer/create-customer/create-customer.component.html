@@ -10,67 +10,66 @@
             <div class="col-md-12">
               <input class="form-control" formControlName="id" type="text" name="id" placeholder="Customer Id" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Customer Id field cannot be blank!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('pattern') && submitted">Id format</div>
             </div>
 
             <div class="col-md-12">
               <input class="form-control" type="text" formControlName="name" name="name" placeholder="Full Name" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('name').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Username field cannot be blank!</div>
             </div>
 
             <div class="col-md-12">
               <input class="form-control" formControlName="dob" type="date" name="dob" placeholder="Day of Birth" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Username field cannot be blank!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('checkAge') && submitted">Over 100</div>
             </div>
 
 
             <div class="col-md-12 mt-3">
               <label class="mb-3 mr-1" >Gender: </label>
 
-              <input type="radio" class="btn-check" formControlName="gender" value="male" id="male" >
+              <input type="radio" class="btn-check" formControlName="gender" value="1" id="male" >
               <label class="btn btn-sm btn-outline-secondary" for="male" >Male</label>
 
-              <input type="radio" class="btn-check" formControlName="gender" value="female" id="female"  >
+              <input type="radio" class="btn-check" formControlName="gender" value="2" id="female"  >
               <label class="btn btn-sm btn-outline-secondary" for="female" >Female</label>
 
 <!--              <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>-->
 <!--              <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>-->
 
               <div class="mb3 text-danger" *ngIf="customerForm.get('gender').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback mv-up">Please select a gender!</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" formControlName="personalId" type="number" name="cmnd" placeholder="Personal Id" required>
+              <input class="form-control" formControlName="personalId" type="text" name="cmnd" placeholder="Personal Id" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('personalId').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Personal Id field cannot be blank!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('personalId').hasError('pattern') && submitted">Personal Id format</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" formControlName="phone" type="number" name="phone" placeholder="Phone Number" required>
+              <input class="form-control" formControlName="phone" type="text" name="phone" placeholder="Phone Number" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Phone Number field cannot be blank!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('pattern') && submitted">Phone format</div>
+<!--              {{customerForm.get('phone').hasError('pattern')}}-->
             </div>
 
             <div class="col-md-12">
               <input class="form-control" formControlName="email" type="email" name="email" placeholder="E-mail Address" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Email field cannot be blank!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('email') && submitted">Email format</div>
             </div>
 
             <div class="col-md-12">
               <select class="form-select mt-3" formControlName="customerType">
                 <option selected disabled value="">Customer Type</option>
-                <option value="diamond">Diamond</option>
-                <option value="platinum">Platinum</option>
-                <option value="gold">Gold</option>
-                <option value="silver">Silver</option>
-                <option value="member">Member</option>
+                <option *ngFor="let cusType of customerType" [ngValue]="cusType">{{cusType.type}}</option>
+<!--                <option value="1">Diamond</option>-->
+<!--                <option value="2">Platinum</option>-->
+<!--                <option value="3">Gold</option>-->
+<!--                <option value="4">Silver</option>-->
+<!--                <option value="5">Member</option>-->
               </select>
               <div class="mb3 text-danger" *ngIf="customerForm.get('customerType').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Please select a position!</div>
             </div>
 
 
@@ -83,7 +82,6 @@
             <div class="col-md-12">
               <input class="form-control" formControlName="address" type="text" name="Address" placeholder="Address" required>
               <div class="mb3 text-danger" *ngIf="customerForm.get('address').hasError('required') && submitted">Required Information</div>
-              <div class="invalid-feedback">Address field cannot be blank!</div>
             </div>
 
 
@@ -96,7 +94,8 @@
 
 
             <div class="form-button mt-3">
-              <button id="submit" type="submit" class="btn btn-primary" (click)="getInfoRegister()">Create</button>
+              <button id="submit" type="submit" class="btn btn-primary" >Create</button>
+              <button><a class="sheSharp" [routerLink]="['/customer']">Return</a></button>
             </div>
           </form>
         </div>

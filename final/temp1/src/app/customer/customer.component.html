@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="search-hero">
+    <a [routerLink]="['/create']" class="btn " role="button"
+       style="color: white;background-color: #046056">Create</a>
+<!--    <span><input type="text" name="search" [(ngModel)]="searchText" (keydown)="search()" autocomplete="off"-->
+<!--           placeholder="Searching something"></span>    -->
+    <span><input type="text" name="search" [(ngModel)]="searchText" (ngModelChange)="search()" autocomplete="off"
+           placeholder="Searching something"></span>
+
+    <span><i class="bi bi-search"></i></span>
+
+  </div>
+
+
+
+
+  <br/>
+  <h1 class="text-center">{{title}}</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Day of Birth</th>
+      <th>Gender</th>
+      <th>Personal Id</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Customer Type</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--    <tr *ngFor="let c of customerList | paginate:{itemsPerPage: 2, currentPage: p};index as i">-->
+    <tr *ngFor="let c of customerList | paginate:{itemsPerPage: 2, currentPage: p}| filter: searchText;index as i">
+      <td>{{i + 1}}</td>
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.dob}}</td>
+      <td>
+        <div *ngIf="c.gender === 1, else elseBlock ">Male</div>
+        <ng-template #elseBlock>Female</ng-template>
+      </td>
+      <td>{{c.email}}</td>
+      <td>{{c.phone}}</td>
+      <td>{{c.address}}</td>
+      <td>{{c.category.name}}</td>
+      <td>
+
+        <a [routerLink]="['edit',c.id]" class="btn " role="button"
+           style="color: white;background-color: #046056">Edit</a>
+
+        <!-- Dialog-->
+        <button type="button" class="btn btn-danger" (click)="openDialog(c.id)">Delete</button>
+
+        <!-- Modal -->
+<!--        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="callDelete(c.id)">-->
+<!--          Delete-->
+<!--        </button>-->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--  phân trang -->
+  <pagination-controls (pageChange)="p = $event" style="color: #046056;background-color: black"></pagination-controls>
+
+</div>
+
+
+<!--modal-->
+<!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>-->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        Are you sure you want to delete {{customer.name}}-->
+<!--        <span style="color:red;" id="nameObjDel">with Id ={{customer.id}}</span>?-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--&lt;!&ndash;        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteCustomer(customer.id)">delete</button>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

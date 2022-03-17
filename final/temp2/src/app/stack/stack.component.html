@@ -1,0 +1,68 @@
+<div class="container">
+
+  <div class="search-hero">
+    <a [routerLink]="['/create']" class="btn " role="button"
+       style="color: white;background-color: #046056">Create</a>
+
+
+    <!--    <span><input type="text" name="search" [(ngModel)]="searchText" (keydown)="search()" autocomplete="off"-->
+    <!--           placeholder="Searching something"></span>    -->
+
+<!--    //search-->
+    <span><input type="text" name="search" [(ngModel)]="searchText" (ngModelChange)="search()" autocomplete="off"
+                 placeholder="Searching something"></span>
+
+    <span><i class="bi bi-search"></i></span>
+
+  </div>
+
+
+
+
+  <br/>
+  <h1 class="text-center">{{title}}</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Stack Code</th>
+      <th>Product</th>
+      <th>Price (VND)</th>
+      <th>Unit</th>
+      <th>Quantity</th>
+      <th>Import Date</th>
+      <th>Manufactured Date</th>
+      <th>Expired Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--        <tr *ngFor="let c of stackList | paginate:{itemsPerPage: 2, currentPage: p};index as i">-->
+    <tr *ngFor="let c of stackList | paginate:{itemsPerPage: 2, currentPage: p}| filter: searchText;index as i">
+      <td>{{i + 1}}</td>
+      <td>{{c.code}}</td>
+      <td>{{c.product.name}}</td>
+      <td>{{c.product.price}}</td>
+      <td>{{c.product.unit}}</td>
+      <td>{{c.amount}}</td>
+      <td>{{c.dateIn}}</td>
+      <td>{{c.madeDate}}</td>
+      <td>{{c.expired}}</td>
+      <td>
+
+        <a [routerLink]="['edit',c.id]" class="btn " role="button"
+           style="color: white;background-color: #046056">Edit</a>
+
+        <!-- Dialog-->
+        <button type="button" class="btn btn-danger" (click)="openDialog(c.id)">Delete</button>
+
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--  phân trang -->
+  <pagination-controls (pageChange)="p = $event" style="color: #046056;background-color: black"></pagination-controls>
+
+</div>

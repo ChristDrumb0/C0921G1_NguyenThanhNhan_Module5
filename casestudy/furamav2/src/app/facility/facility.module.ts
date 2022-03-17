@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListFacilityComponent } from './list-facility/list-facility.component';
+import {FacilityRoutingModule} from "./facility-routing.module";
 
 
 
@@ -12,7 +13,8 @@ import { ListFacilityComponent } from './list-facility/list-facility.component';
     ListFacilityComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FacilityRoutingModule
   ]
 })
 export class FacilityModule { }

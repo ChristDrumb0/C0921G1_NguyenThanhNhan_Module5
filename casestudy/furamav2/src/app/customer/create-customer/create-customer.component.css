@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+.sheSharp a{
+  text-decoration: none;
+}
+.sheSharp{
 
+  background-color: #fff;
+  color: #046056;
+  outline: none;
+  border-color: #046056;
+  box-shadow: none;
+}
 .form-holder {
   display: flex;
   flex-direction: column;
@@ -23,7 +33,6 @@
   align-items: center;
   padding: 60px;
 }
-
 .form-content .form-items {
   border: 3px solid #046056;
   padding: 40px;

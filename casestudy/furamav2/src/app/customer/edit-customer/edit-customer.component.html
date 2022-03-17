@@ -3,78 +3,86 @@
     <div class="form-holder">
       <div class="form-content">
         <div class="form-items">
+          <a [routerLink]="['/customer']">Return</a>
           <h3>Edit Customer</h3>
           <p>Fill in the data below.</p>
-          <form class="requires-validation" novalidate>
+          <form class="requires-validation"  [formGroup]="customerForm" (ngSubmit)="editCustomer()">
 
-            <div>
-              <input type="hidden" value="{id}">
+            <div class="col-md-12">
+              <p >Customer Id: {{customer.id}}</p>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('required') && submitted">Required Information</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('pattern') && submitted">Id format</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" type="text" name="name" placeholder="Full Name" required>
-              <div class="valid-feedback">Username field is valid!</div>
-              <div class="invalid-feedback">Username field cannot be blank!</div>
+              <input class="form-control" type="text" formControlName="name" name="name" placeholder="Full Name" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('name').hasError('required') && submitted">Required Information</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" type="date" name="dob" placeholder="Day of Birth" required>
-              <div class="valid-feedback">Username field is valid!</div>
-              <div class="invalid-feedback">Username field cannot be blank!</div>
+              <input class="form-control" formControlName="dob" type="date" name="dob" placeholder="Day of Birth" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('required') && submitted">Required Information</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('checkAge') && submitted">Over 100</div>
             </div>
 
 
             <div class="col-md-12 mt-3">
-              <label class="mb-3 mr-1" for="gender">Gender: </label>
+              <label class="mb-3 mr-1" >Gender: </label>
 
-              <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
-              <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+              <input type="radio" class="btn-check" formControlName="gender" value="1" id="male" >
+              <label class="btn btn-sm btn-outline-secondary" for="male" >Male</label>
 
-              <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
-              <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+              <input type="radio" class="btn-check" formControlName="gender" value="2" id="female"  >
+              <label class="btn btn-sm btn-outline-secondary" for="female" >Female</label>
 
-              <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
-              <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
-              <div class="valid-feedback mv-up">You had selected a gender!</div>
-              <div class="invalid-feedback mv-up">Please select a gender!</div>
+              <!--              <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>-->
+              <!--              <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>-->
+
+              <div class="mb3 text-danger" *ngIf="customerForm.get('gender').hasError('required') && submitted">Required Information</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" type="number" name="cmnd" placeholder="Personal Id" required>
-              <div class="valid-feedback">Personal Id field is valid!</div>
-              <div class="invalid-feedback">Personal Id field cannot be blank!</div>
+              <input class="form-control" formControlName="personalId" type="number" name="cmnd" placeholder="Personal Id" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('personalId').hasError('required') && submitted">Required Information</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('personalId').hasError('pattern') && submitted">Personal Id format</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" type="number" name="phone" placeholder="Phone Number" required>
-              <div class="valid-feedback">Phone Number field is valid!</div>
-              <div class="invalid-feedback">Phone Number field cannot be blank!</div>
+              <input class="form-control" formControlName="phone" type="number" name="phone" placeholder="Phone Number" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('required') && submitted">Required Information</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('pattern') && submitted">Phone format</div>
             </div>
 
             <div class="col-md-12">
-              <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
-              <div class="valid-feedback">Email field is valid!</div>
-              <div class="invalid-feedback">Email field cannot be blank!</div>
+              <input class="form-control" formControlName="email" type="email" name="email" placeholder="E-mail Address" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('required') && submitted">Required Information</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('email') && submitted">Email format</div>
             </div>
 
             <div class="col-md-12">
-              <select class="form-select mt-3" required>
-                <option selected disabled value="">Customer Type</option>
-                <option value="diamond">Diamond</option>
-                <option value="platinum">Platinum</option>
-                <option value="gold">Gold</option>
-                <option value="silver">Silver</option>
-                <option value="member">Member</option>
+              <select class="form-select mt-3" formControlName="customerType" >
+<!--                <option selected [ngValue]="customerForm.controls.customerType.value.id">{{customerForm.controls.customerType.value.type}}</option>-->
+                <option  *ngFor="let cusType of customerType" [ngValue]="cusType" [selected]="cusType.id == customerForm.controls.customerType.value.id">{{cusType.type}}</option>
+                <!--                <option value="1">Diamond</option>-->
+                <!--                <option value="2">Platinum</option>-->
+                <!--                <option value="3">Gold</option>-->
+                <!--                <option value="4">Silver</option>-->
+                <!--                <option value="5">Member</option>-->
               </select>
-              <div class="valid-feedback">You selected a position!</div>
-              <div class="invalid-feedback">Please select a position!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('customerType').hasError('required') && submitted">Required Information</div>
             </div>
 
-            <div class="col-md-12">
-              <input class="form-control" type="text" name="Address" placeholder="Address" required>
-              <div class="valid-feedback">Address field is valid!</div>
-              <div class="invalid-feedback">Address field cannot be blank!</div>
-            </div>
+<!--            <div class="col-md-12">-->
+<!--              <select class="form-select mt-3" formControlName="customerType">-->
+<!--                <ng-container *ngFor="let cusType of customerType">-->
+<!--                  <option [selected]="customer.customerType['id'] === cusType['id']" [ngValue]="cusType" [value]="cusType['type']">-->
+<!--                    {{cusType['type']}}</option>-->
+<!--                </ng-container>-->
+
+<!--              </select>-->
+<!--              <div class="mb3 text-danger" *ngIf="customerForm.get('customerType').hasError('required') && submitted">Required Information</div>-->
+<!--            </div>-->
+
 
             <!--            <div class="col-md-12">-->
             <!--              <input class="form-control" type="password" name="password" placeholder="Password" required>-->
@@ -82,18 +90,22 @@
             <!--              <div class="invalid-feedback">Password field cannot be blank!</div>-->
             <!--            </div>-->
 
-
+            <div class="col-md-12">
+              <input class="form-control" formControlName="address" type="text" name="Address" placeholder="Address" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('address').hasError('required') && submitted">Required Information</div>
+            </div>
 
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <input class="form-check-input" formControlName="check" type="checkbox" value="" id="invalidCheck" required>
               <label class="form-check-label">I confirm that all data are correct</label>
-              <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('check').hasError('required') && submitted">Please confirm that the entered data are all correct!</div>
+              <!--              <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>-->
             </div>
 
 
             <div class="form-button mt-3">
-              <button id="submit" type="submit" class="btn btn-primary">Edit</button>
+              <button id="submit" type="submit" class="btn btn-primary" >Edit</button>
             </div>
           </form>
         </div>

@@ -8,8 +8,15 @@ import {EditCustomerComponent} from "./edit-customer/edit-customer.component";
 
 const customerRoute: Routes = [
 
+  // {
+  //   path: 'customer', component: ListCustomerComponent, children: [
+  //     {path: 'create', component: CreateCustomerComponent},
+  //     {path: 'edit/:id', component: EditCustomerComponent},
+  //   ]
+  // }
+
   {path: 'customer', component: ListCustomerComponent},
-  {path: 'create', component: CreateCustomerComponent},
+  {path: 'customer/create', component: CreateCustomerComponent},
   {path: 'edit/:id', component: EditCustomerComponent},
 ]
 

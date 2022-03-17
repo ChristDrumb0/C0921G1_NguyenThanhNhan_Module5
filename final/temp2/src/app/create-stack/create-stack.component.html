@@ -1,0 +1,66 @@
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Register New Product Stack</h3>
+          <p>Fill in the data below.</p>
+          <form class="requires-validation"  [formGroup]="stackForm" (ngSubmit)="onSubmit()">
+
+
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="code" type="text" name="code" placeholder="Stack Code" required>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('code').hasError('required') && submitted">Required Information</div>
+                            <div class="mb3 text-danger" *ngIf="stackForm.get('code').hasError('pattern') && submitted">Id format</div>
+            </div>
+
+            <div class="col-md-12">
+              <select class="form-select mt-3" formControlName="product">
+                <option selected disabled value="">Product</option>
+                <option *ngFor="let product of productList" [ngValue]="product">{{product.name}}</option>
+              </select>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('product').hasError('required') && submitted">Required Information</div>
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="amount" type="number" name="number" placeholder="Quantity" required>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('amount').hasError('required') && submitted">Required Information</div>
+                            <div class="mb3 text-danger" *ngIf="stackForm.get('amount').hasError('min') && submitted">must not Negative</div>
+            </div>
+
+<!--ngay nhap hang-->
+            <div class="col-md-12">
+              <input class="form-control" formControlName="dateIn" type="date" name="dateIn" placeholder="Import Date" required>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('dateIn').hasError('required') && submitted">Required Information</div>
+<!--              <div class="mb3 text-danger" *ngIf="stackForm.get('dateIn').hasError('checkAge') && submitted">Over 100</div>-->
+            </div>
+
+<!--            ngay san xuat-->
+            <div class="col-md-12">
+              <input class="form-control" formControlName="madeDate" type="date" name="madeDate" placeholder="Manufactured Date" required>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('madeDate').hasError('required') && submitted">Required Information</div>
+<!--              <div class="mb3 text-danger" *ngIf="stackForm.get('dateIn').hasError('checkAge') && submitted">Over 100</div>-->
+            </div>
+
+<!--            ngay heet han-->
+            <div class="col-md-12">
+              <input class="form-control" formControlName="expired" type="date" name="expired" placeholder="Expired Date" required>
+              <div class="mb3 text-danger" *ngIf="stackForm.get('expired').hasError('required') && submitted">Required Information</div>
+<!--              <div class="mb3 text-danger" *ngIf="stackForm.get('dateIn').hasError('checkAge') && submitted">Over 100</div>-->
+            </div>
+
+
+
+            <div class="form-button mt-3">
+              <button id="submit" type="submit" class="btn btn-primary" style="color: white;background-color: #046056">Create</button>
+              <a routerLink='' class="btn " role="button"
+                 style="color: #046056;background-color: white; border-color: #046056">Return</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

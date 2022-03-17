@@ -1,0 +1,13 @@
+<p >Delete a Product Stack!!!</p>
+<div >
+  <h2 style="text-align: center">
+  Are you sure you want to delete stack <span style="color:red;" id="nameObjDel">{{stack.product.name}}</span>
+    <br> import on
+  <span style="color:red;" id="idObjDel">{{stack.dateIn}}</span>??
+  </h2>
+</div>
+<div style="text-align: center">
+  <button type="button" class="btn btn-danger" (click)="onNoClick()">No Thanks</button>
+  <button type="button" class="btn btn-danger" (click) ="onDelete(stack.id)">Delete</button>
+</div>
+

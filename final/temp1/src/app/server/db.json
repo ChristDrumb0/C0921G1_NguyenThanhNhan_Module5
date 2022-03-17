@@ -1,0 +1,79 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Ng A",
+      "dob": "2000-02-02",
+      "phone": "+84987654321",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "gender": 2,
+      "category": {
+        "id": 1,
+        "name": "Vip"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ng B",
+      "dob": "2000-02-02",
+      "phone": "+84153678903",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "gender": 1,
+      "category": {
+        "id": 2,
+        "name": "Pro"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Ng C",
+      "dob": "2000-02-02",
+      "phone": "+84123678456",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "gender": 1,
+      "category": {
+        "id": 1,
+        "name": "Vip"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Ng D",
+      "dob": "2000-02-02",
+      "phone": "+84123456789",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "gender": 2,
+      "category": {
+        "id": 2,
+        "name": "Pro"
+      }
+    },
+    {
+      "id": 123345,
+      "name": "Nguyen Bcd",
+      "dob": "2022-03-09",
+      "gender": "2",
+      "email": "email@gmail.com",
+      "phone": "0917654321",
+      "address": "Vietnam",
+      "category": {
+        "id": 2,
+        "name": "Pro"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Vip"
+    },
+    {
+      "id": 2,
+      "name": "Pro"
+    }
+  ]
+}

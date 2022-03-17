@@ -8,6 +8,7 @@ import {HeaderComponent} from "./header/header.component";
 import {CustomerRoutingModule} from "./customer/customer-routing.module";
 import {ListCustomerComponent} from "./customer/list-customer/list-customer.component";
 import {CustomerModule} from "./customer/customer.module";
+import {FacilityModule} from "./facility/facility.module";
 
 
 const route: Routes = [
@@ -25,6 +26,7 @@ const route: Routes = [
   imports: [
     CommonModule,
     CustomerModule,
+    FacilityModule,
     RouterModule.forRoot(route)
   ],
   exports:[

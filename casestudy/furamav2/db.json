@@ -1,19 +1,84 @@
 {
-  "posts": [
+  "customerTypes": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "type": "Diamond"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "type": "Platinum"
+    },
+    {
+      "id": 3,
+      "type": "Gold"
+    },
+    {
+      "id": 4,
+      "type": "Silver"
+    },
+    {
+      "id": 5,
+      "type": "Member"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "customer": [
+    {
+      "id": "1",
+      "name": "Mai Ho",
+      "dob": "1991-11-11",
+      "gender": 2,
+      "personalId": "11122233344",
+      "phone": "0913338888",
+      "email": "email@gmail.com",
+      "customerType": {
+        "id": 3,
+        "type": "Gold"
+      },
+      "address": "Vietnam",
+      "check": true
+    },
+    {
+      "id": "2",
+      "name": "Tran Thanh",
+      "dob": "1989-01-01",
+      "gender": 1,
+      "personalId": "11122143344",
+      "phone": "0901021345",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "customerType": {
+        "id": 5,
+        "type": "Member"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Harri Won",
+      "dob": "1995-10-05",
+      "gender": 2,
+      "personalId": "12465870000",
+      "phone": "0913338888",
+      "email": "email@gmail.com",
+      "address": "Vietnam",
+      "customerType": {
+        "id": 4,
+        "type": "Silver"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Dinh Tien Dat",
+      "dob": "2000-01-02",
+      "gender": 1,
+      "personalId": "1234568790",
+      "phone": "9123456789",
+      "email": "email@gmail.com",
+      "customerType": {
+        "id": 2,
+        "type": "Platinum"
+      },
+      "address": "Vietnam",
+      "check": true
+    }
+  ]
 }

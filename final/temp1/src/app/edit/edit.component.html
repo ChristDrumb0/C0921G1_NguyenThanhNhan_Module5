@@ -1,0 +1,84 @@
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Edit ...</h3>
+          <p>Fill in the data below.</p>
+          <form class="requires-validation"  [formGroup]="customerForm" (ngSubmit)="editCustomer()">
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="id" type="number" name="id" placeholder="Customer Id" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('required') && submitted">Required Information</div>
+              <!--              <div class="mb3 text-danger" *ngIf="customerForm.get('id').hasError('pattern') && submitted">Id format</div>-->
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" type="text" formControlName="name" name="name" placeholder="Full Name" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('name').hasError('required') && submitted">Required Information</div>
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="dob" type="date" name="dob" placeholder="Day of Birth" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('required') && submitted">Required Information</div>
+              <!--              <div class="mb3 text-danger" *ngIf="customerForm.get('dob').hasError('checkAge') && submitted">Over 100</div>-->
+            </div>
+
+
+            <div class="col-md-12 mt-3">
+              <label class="mb-3 mr-1" >Gender: </label>
+
+              <input type="radio" class="btn-check" formControlName="gender" value="1" id="male" >
+              <label class="btn btn-sm btn-outline-secondary" for="male" >Male</label>
+
+              <input type="radio" class="btn-check" formControlName="gender" value="2" id="female"  >
+              <label class="btn btn-sm btn-outline-secondary" for="female" >Female</label>
+
+              <div class="mb3 text-danger" *ngIf="customerForm.get('gender').hasError('required') && submitted">Required Information</div>
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="email" type="email" name="email" placeholder="E-mail Address" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('required') && submitted">Required Information</div>
+              <!--              <div class="mb3 text-danger" *ngIf="customerForm.get('email').hasError('email') && submitted">Email format</div>-->
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="phone" type="text" name="phone" placeholder="Phone Number" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('required') && submitted">Required Information</div>
+              <!--              <div class="mb3 text-danger" *ngIf="customerForm.get('phone').hasError('pattern') && submitted">Phone format</div>-->
+            </div>
+
+            <div class="col-md-12">
+              <input class="form-control" formControlName="address" type="text" name="Address" placeholder="Address" required>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('address').hasError('required') && submitted">Required Information</div>
+            </div>
+
+            <div class="col-md-12">
+              <select class="form-select mt-3" formControlName="category">
+<!--                <option *ngFor="let category of categoryList" [ngValue]="category">{{category.name}}</option>-->
+                <option  *ngFor="let category of categoryList" [ngValue]="category" [selected]="category.id == customerForm.controls.category.value.id">{{category.name}}</option>
+              </select>
+              <div class="mb3 text-danger" *ngIf="customerForm.get('category').hasError('required') && submitted">Required Information</div>
+            </div>
+
+
+            <!--            <div class="form-check">-->
+            <!--              <input class="form-check-input" formControlName="check" type="checkbox" value="" id="invalidCheck" required>-->
+            <!--              <label class="form-check-label">I confirm that all data are correct</label>-->
+            <!--              <div class="mb3 text-danger" *ngIf="customerForm.get('check').hasError('required') && submitted">Please confirm that the entered data are all correct!</div>-->
+            <!--              &lt;!&ndash;              <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>&ndash;&gt;-->
+            <!--            </div>-->
+
+
+            <div class="form-button mt-3">
+              <button id="submit" type="submit" class="btn btn-primary" >Update</button>
+              <a routerLink='' class="btn " role="button"
+                 style="color: white;background-color: #046056">Return</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
